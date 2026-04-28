@@ -3,113 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HK Event & Decoration | Jaipur</title>
+    <title>HK Event & Decoration Jaipur | Premium Decor</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #b03060; --purple: #6a1b9a; --bg: #ffffff; }
-        body { margin:0; font-family:'Poppins', sans-serif; background: #fff; color: #333; padding-bottom: 100px; }
+        :root { --primary:#d81b60; --light:#fff5f8; }
+        body { margin:0; font-family:'Poppins', sans-serif; background:#fff; color:#333; padding-bottom: 70px; }
         
-        .header { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; border-bottom: 1px solid #eee; }
-        .logo-text { font-weight: bold; color: var(--primary); font-size: 20px; }
+        .header { display:flex; justify-content:space-between; padding:15px; background:white; position:sticky; top:0; z-index:1000; box-shadow:0 2px 10px rgba(0,0,0,0.05); align-items: center; }
+        .logo { font-weight:800; font-size:20px; color:var(--primary); }
+        .loc-btn { font-size:11px; padding:6px 12px; border-radius:20px; background:var(--light); text-decoration:none; color:#333; font-weight:600; border: 1px solid var(--primary); }
 
-        /* Banner Slider */
-        .banner-container { width: 92%; margin: 15px auto; height: 180px; border-radius: 20px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
-        .slider { display: flex; transition: 0.5s; height: 100%; }
-        .slide img { width: 100%; height: 100%; object-fit: cover; }
+        .banner { width:94%; margin:15px auto; height:200px; overflow:hidden; border-radius:20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .slider { display:flex; transition:0.5s; height: 100%; }
+        .slide img { min-width:100%; height:200px; object-fit:cover; }
 
-        /* Circular Categories */
-        .section-title { padding: 20px 15px 10px; font-size: 17px; font-weight: 600; }
-        .cat-scroll { display: flex; overflow-x: auto; gap: 18px; padding: 0 20px; scrollbar-width: none; }
-        .cat-circle { width: 60px; height: 60px; background: #fff1f6; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 3px 10px rgba(0,0,0,0.05); }
+        .trust { text-align:center; padding:15px; background:#fff0f5; margin: 10px 15px; border-radius: 15px; }
+        .trust span { display:block; font-weight:bold; color:var(--primary); font-size: 18px; }
 
-        /* Gallery Grid with AI Placeholders */
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 15px; }
-        .work-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 1px solid #eee; }
-        .work-card img { width: 100%; height: 140px; object-fit: cover; cursor: pointer; transition: 0.3s; }
-        .work-card img:active { transform: scale(0.95); }
-        .card-label { padding: 8px; font-size: 11px; font-weight: 600; text-align: center; }
+        .section-title { padding:15px 20px 5px; font-weight:600; font-size: 17px; }
+        .grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; padding:15px; }
+        .card { background:white; border-radius:15px; overflow:hidden; box-shadow:0 3px 10px rgba(0,0,0,0.05); border: 1px solid #eee; }
+        .card img { width:100%; height:130px; object-fit:cover; cursor: pointer; }
+        .card-info { padding:10px; }
+        .card-title { font-size:12px; font-weight:600; margin-bottom: 5px; }
+        .btn { background:var(--primary); color:white; border:none; padding:8px; width:100%; border-radius:8px; font-size: 11px; font-weight: bold; }
 
-        /* Lead Generation Form */
-        .form-section { background: #fef1f6; padding: 30px 20px; margin: 20px 15px; border-radius: 20px; text-align: center; }
-        .form-section input { width: 100%; padding: 12px; margin: 8px 0; border-radius: 10px; border: 1px solid #ddd; box-sizing: border-box; }
-        .submit-btn { background: var(--primary); color: white; border: none; padding: 12px; width: 100%; border-radius: 10px; font-weight: bold; margin-top: 10px; }
+        .form { padding:20px; background: var(--light); margin: 20px 15px; border-radius: 20px; }
+        input { width:100%; padding:12px; margin:8px 0; border-radius:10px; border:1px solid #ddd; box-sizing: border-box; }
+        .submit-btn { width:100%; padding:12px; background:var(--primary); color:white; border:none; border-radius:10px; font-weight: bold; cursor: pointer; }
 
-        /* Floating Small WhatsApp */
-        .wa-float { position: fixed; bottom: 85px; right: 20px; background: #25d366; color: white; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); text-decoration: none; z-index: 1000; }
+        .wa { position:fixed; bottom:80px; right:20px; background:#25d366; color:white; width:50px; height:50px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:24px; text-decoration:none; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 1000; }
 
-        /* Action Bar */
-        .action-bar { position: fixed; bottom: 0; width: 100%; background: white; display: flex; border-top: 1px solid #eee; z-index: 1001; }
-        .act-btn { flex: 1; padding: 16px; text-decoration: none; font-weight: bold; font-size: 14px; text-align: center; }
-        .act-loc { background: #4285F4; color: white; }
-        .act-call { color: #333; }
+        .nav { position:fixed; bottom:0; width:100%; background:white; display:flex; border-top:1px solid #eee; z-index: 1001; }
+        .nav a { flex:1; text-align:center; padding:15px; text-decoration:none; color:#555; font-size:12px; font-weight: 600; }
+        .nav a.active { color: var(--primary); }
     </style>
 </head>
 <body>
 
 <div class="header">
-    <div class="logo-text">HK EVENTS</div>
-    <div style="font-size:11px; font-weight:600;">📍 JAIPUR</div>
+    <div class="logo">HK EVENTS</div>
+    <a href="https://maps.app.goo.gl/9rLp3yE7u7Qp7x8k9" target="_blank" class="loc-btn">📍 Google Maps</a>
 </div>
 
-<div class="banner-container">
+<div class="banner">
     <div class="slider" id="mainSlider">
         <div class="slide"><img src="1000108998.jpg"></div>
         <div class="slide"><img src="1000108997.jpg"></div>
+        <div class="slide"><img src="1000108996.jpg"></div>
     </div>
 </div>
 
-<div class="section-title">Hamari Specialities</div>
-<div class="cat-scroll">
-    <div class="cat-item"><div class="cat-circle">💍</div><div class="cat-label">Wedding</div></div>
-    <div class="cat-item"><div class="cat-circle">🎂</div><div class="cat-label">Birthday</div></div>
-    <div class="cat-item"><div class="cat-circle">✨</div><div class="cat-label">Anniversary</div></div>
+<div class="trust">
+    <span>500+ Events Done</span>
+    ⭐ 4.9 Rating | Jaipur Trusted Decorator
 </div>
 
-<div class="section-title">Tap to See Our Original Work</div>
+<div class="section-title">Tap to See Real Work</div>
 <div class="grid">
-    <div class="work-card">
+    <div class="card">
         <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=400" onclick="this.src='1000108995.jpg'">
-        <div class="card-label">Wedding Decor</div>
+        <div class="card-info">
+            <div class="card-title">Wedding Stage</div>
+            <button class="btn" onclick="location.href='https://wa.me/919782469834'">Enquiry</button>
+        </div>
     </div>
-    <div class="work-card">
+    <div class="card">
         <img src="https://images.unsplash.com/photo-1530103043960-ef38714abb15?w=400" onclick="this.src='1000108994.jpg'">
-        <div class="card-label">Birthday Party</div>
-    </div>
-    <div class="work-card">
-        <img src="https://images.unsplash.com/photo-1478147427282-58a87a120781?w=400" onclick="this.src='1000108993.jpg'">
-        <div class="card-label">Anniversary Decor</div>
-    </div>
-    <div class="work-card">
-        <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=400" onclick="this.src='1000108992.jpg'">
-        <div class="card-label">Surprise Setup</div>
+        <div class="card-info">
+            <div class="card-title">Birthday Decor</div>
+            <button class="btn" onclick="location.href='https://wa.me/919782469834'">Enquiry</button>
+        </div>
     </div>
 </div>
 
-<div class="form-section">
-    <h3 style="margin-top:0; color:var(--primary);">Booking Enquiry</h3>
-    <p style="font-size:12px; color:#666;">Apna details bharein, hum aapko call karenge.</p>
+<div class="form">
+    <h3 style="margin-top:0;">Book Your Date</h3>
     <form action="https://formsubmit.co/jk4065179@gmail.com" method="POST">
         <input type="text" name="name" placeholder="Aapka Naam" required>
         <input type="tel" name="phone" placeholder="Mobile Number" required>
-        <input type="hidden" name="_next" value="https://jatinkirar.github.io/Hk-event-and-Decoration-/">
         <button type="submit" class="submit-btn">Check Availability</button>
     </form>
 </div>
 
-<a href="https://wa.me/919782469834" class="wa-float">💬</a>
+<a href="https://wa.me/919782469834" class="wa">💬</a>
 
-<div class="action-bar">
-    <a href="tel:9782469834" class="act-btn act-call">📞 Call Now</a>
-    <a href="https://www.google.com/maps/search/?api=1&query=125,+Hathroi+Bawdi,+Devi+Niketan+Compound,+Jaipur" target="_blank" class="act-btn act-loc">📍 Location</a>
+<div class="nav">
+    <a href="#" class="active">Home</a>
+    <a href="tel:9782469834">Call Now</a>
+    <a href="https://maps.app.goo.gl/9rLp3yE7u7Qp7x8k9" target="_blank">Map</a>
 </div>
 
 <script>
-    let current = 0;
-    const slider = document.getElementById('mainSlider');
-    setInterval(() => {
-        current = (current + 1) % 2;
-        slider.style.transform = `translateX(-${current * 100}%)`;
-    }, 3000);
+    let i=0;
+    setInterval(()=>{
+        i=(i+1)%3;
+        document.getElementById("mainSlider").style.transform=`translateX(-${i*100}%)`;
+    },3000);
 </script>
 
 </body>
