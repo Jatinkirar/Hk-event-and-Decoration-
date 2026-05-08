@@ -1,118 +1,1345 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HK Event & Decoration Jaipur</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>HK Event & Decoration - Premium Event Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --primary:#d81b60; --bg:#fff; }
-        body { margin:0; font-family:'Poppins', sans-serif; background:var(--bg); padding-bottom: 80px; }
-        
-        .header { display:flex; justify-content:space-between; padding:15px; background:white; position:sticky; top:0; z-index:1000; box-shadow:0 2px 10px rgba(0,0,0,0.05); align-items: center; }
-        .logo { font-weight:800; font-size:20px; color:var(--primary); }
-        .loc-btn { font-size:11px; padding:6px 12px; border-radius:20px; background:#fff5f8; text-decoration:none; color:#333; font-weight:600; border: 1px solid var(--primary); }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        .banner { width:94%; margin:15px auto; height:200px; overflow:hidden; border-radius:20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .slider { display:flex; transition:0.5s; height: 100%; }
-        .slide img { min-width:100%; height:200px; object-fit:cover; }
+        :root {
+            --primary-color: #d4af37;
+            --dark-bg: #0a0a0a;
+            --dark-secondary: #1a1a1a;
+            --dark-tertiary: #2a2a2a;
+            --text-light: #e0e0e0;
+            --text-muted: #999;
+            --transition: all 0.3s ease;
+        }
 
-        .trust { text-align:center; padding:15px; background:#fff0f5; margin: 10px 15px; border-radius: 15px; }
-        .trust span { display:block; font-weight:bold; color:var(--primary); font-size: 18px; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-        .section-title { padding:15px 20px 5px; font-weight:600; font-size: 17px; }
-        .grid { display:grid; grid-template-columns: 1fr 1fr; gap:12px; padding:15px; }
-        .card { background:white; border-radius:15px; overflow:hidden; box-shadow:0 3px 10px rgba(0,0,0,0.05); border: 1px solid #eee; }
-        .card img { width:100%; height:130px; object-fit:cover; cursor: pointer; }
-        .card-info { padding:10px; }
-        .card-title { font-size:12px; font-weight:600; margin-bottom: 5px; }
-        .btn { background:var(--primary); color:white; border:none; padding:8px; width:100%; border-radius:8px; font-size: 11px; font-weight: bold; }
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
 
-        .form { padding:20px; background: #fff5f8; margin: 20px 15px; border-radius: 20px; }
-        input { width:100%; padding:12px; margin:8px 0; border-radius:10px; border:1px solid #ddd; box-sizing: border-box; }
-        .submit-btn { width:100%; padding:12px; background:var(--primary); color:white; border:none; border-radius:10px; font-weight: bold; cursor: pointer; }
+        ::-webkit-scrollbar-track {
+            background: var(--dark-secondary);
+        }
 
-        .wa { position:fixed; bottom:80px; right:20px; background:#25d366; color:white; width:50px; height:50px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:24px; text-decoration:none; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 1000; }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 5px;
+        }
 
-        .nav { position:fixed; bottom:0; width:100%; background:white; display:flex; border-top:1px solid #eee; z-index: 1001; }
-        .nav a { flex:1; text-align:center; padding:15px; text-decoration:none; color:#555; font-size:12px; font-weight: 600; }
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--primary-color);
+            padding: 1rem 2rem;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--primary-color);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover::after,
+        .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-color);
+            margin: 5px 0;
+            transition: var(--transition);
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        /* Floating Buttons */
+        .floating-buttons {
+            position: fixed;
+            right: 2rem;
+            bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 999;
+        }
+
+        .float-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            border: 2px solid var(--primary-color);
+        }
+
+        .whatsapp-btn {
+            background: #25d366;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.2);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+        }
+
+        .call-btn {
+            background: var(--primary-color);
+            color: var(--dark-bg);
+        }
+
+        .call-btn:hover {
+            transform: scale(1.2);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 70px;
+            height: 100vh;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--dark-secondary) 50%, var(--dark-bg) 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            bottom: -50px;
+            left: -50px;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(30px); }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 10;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-color), #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.2s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.4s backwards;
+        }
+
+        .cta-btn {
+            padding: 1rem 2rem;
+            border: 2px solid var(--primary-color);
+            background: transparent;
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .cta-btn:hover {
+            background: var(--primary-color);
+            color: var(--dark-bg);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        .cta-btn.primary {
+            background: var(--primary-color);
+            color: var(--dark-bg);
+        }
+
+        .cta-btn.primary:hover {
+            background: transparent;
+            color: var(--primary-color);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            position: relative;
+            color: var(--primary-color);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: var(--primary-color);
+            margin: 1rem auto 0;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background: var(--dark-secondary);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            aspect-ratio: 1;
+            cursor: pointer;
+            group: 'gallery';
+        }
+
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary-color), transparent);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 2;
+        }
+
+        .gallery-item:hover::before {
+            opacity: 0.3;
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            transition: var(--transition);
+            position: relative;
+            z-index: 1;
+        }
+
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.1);
+        }
+
+        /* Event Sections */
+        .event-section {
+            background: var(--dark-bg);
+        }
+
+        .event-section:nth-child(odd) {
+            background: var(--dark-secondary);
+        }
+
+        .event-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .event-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid var(--primary-color);
+        }
+
+        .event-image::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            animation: rotate 8s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .event-content h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .event-content p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .features-list li {
+            padding: 0.5rem 0;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .features-list li::before {
+            content: '✓';
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* About/Services Section */
+        .about {
+            text-align: center;
+            background: var(--dark-secondary);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--dark-tertiary);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid var(--primary-color);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+            background: var(--dark-bg);
+        }
+
+        .service-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--dark-bg);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            width: 30px;
+            margin-top: 0.5rem;
+        }
+
+        .contact-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item p {
+            color: var(--text-muted);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            background: var(--dark-secondary);
+            border: 1px solid var(--primary-color);
+            color: var(--text-light);
+            padding: 0.8rem;
+            border-radius: 5px;
+            font-family: inherit;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            background: var(--dark-tertiary);
+            border-color: #fff;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-btn {
+            background: var(--primary-color);
+            color: var(--dark-bg);
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-secondary);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--primary-color);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .footer-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--dark-tertiary);
+            border: 1px solid var(--primary-color);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+            color: var(--dark-bg);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--primary-color);
+            color: var(--text-muted);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: var(--dark-secondary);
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            border: 2px solid var(--primary-color);
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-close {
+            float: right;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            color: #fff;
+        }
+
+        .modal-title {
+            color: var(--primary-color);
+            margin: 1rem 0;
+        }
+
+        .modal p {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background: var(--dark-secondary);
+                padding: 2rem;
+                gap: 1rem;
+                border-bottom: 1px solid var(--primary-color);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero {
+                margin-top: 60px;
+                height: auto;
+                padding: 3rem 0;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .event-container {
+                grid-template-columns: 1fr;
+            }
+
+            .event-image {
+                height: 250px;
+                font-size: 3rem;
+            }
+
+            .event-content h2 {
+                font-size: 1.8rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+
+            .floating-buttons {
+                right: 1rem;
+                bottom: 1rem;
+                flex-direction: row;
+                gap: 0.5rem;
+            }
+
+            .float-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .cta-buttons {
+                gap: 0.5rem;
+            }
+
+            .cta-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+
+            .event-container {
+                gap: 1rem;
+            }
+
+            .nav-menu {
+                padding: 1rem;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Loading Animation */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .loading {
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-star"></i> HK Events
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li><a href="#wedding" class="nav-link">Wedding</a></li>
+                <li><a href="#birthday" class="nav-link">Birthday</a></li>
+                <li><a href="#baby-shower" class="nav-link">Baby Shower</a></li>
+                <li><a href="#corporate" class="nav-link">Corporate</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-<div class="header">
-    <div class="logo">HK EVENTS</div>
-    <a href="http://googleusercontent.com/maps.google.com/6" target="_blank" class="loc-btn">📍 Google Maps</a>
-</div>
-
-<div class="banner">
-    <div class="slider" id="mainSlider">
-        <div class="slide"><img src="1000108998.jpg"></div>
-        <div class="slide"><img src="1000108997.jpg"></div>
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+        <a href="https://wa.me/919876543210" class="float-btn whatsapp-btn" target="_blank" title="Chat on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:+919876543210" class="float-btn call-btn" title="Call Us">
+            <i class="fas fa-phone"></i>
+        </a>
     </div>
-</div>
 
-<div class="trust">
-    <span>500+ Events Done</span>
-    ⭐ 4.9 Rating | Jaipur Decorator
-</div>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Make Your Events Unforgettable</h1>
+            <p>Premium Event Planning & Decoration Services</p>
+            <div class="cta-buttons">
+                <a href="#gallery" class="cta-btn primary">View Gallery</a>
+                <a href="#contact" class="cta-btn">Get in Touch</a>
+            </div>
+        </div>
+    </section>
 
-<div class="section-title">Tap to See Our Original Work</div>
-<div class="grid">
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=500" onclick="this.src='1000108995.jpg'">
-        <div class="card-info">
-            <div class="card-title">Wedding Decor</div>
-            <button class="btn" onclick="location.href='https://wa.me/919782469834'">Enquiry</button>
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <h2 class="section-title">Our Gallery</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item" onclick="openModal('wedding')">
+                <div class="gallery-image">
+                    <i class="fas fa-heart"></i>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openModal('birthday')">
+                <div class="gallery-image">
+                    <i class="fas fa-birthday-cake"></i>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openModal('baby-shower')">
+                <div class="gallery-image">
+                    <i class="fas fa-baby"></i>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openModal('corporate')">
+                <div class="gallery-image">
+                    <i class="fas fa-building"></i>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openModal('gallery1')">
+                <div class="gallery-image">
+                    <i class="fas fa-sparkles"></i>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openModal('gallery2')">
+                <div class="gallery-image">
+                    <i class="fas fa-champagne-glasses"></i>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openModal('gallery3')">
+                <div class="gallery-image">
+                    <i class="fas fa-flower"></i>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openModal('gallery4')">
+                <div class="gallery-image">
+                    <i class="fas fa-music"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wedding Section -->
+    <section id="wedding">
+        <div class="event-container">
+            <div class="event-image">
+                <i class="fas fa-heart"></i>
+            </div>
+            <div class="event-content">
+                <h2>Wedding Events</h2>
+                <p>Create the wedding of your dreams with our premium decoration and planning services. From intimate ceremonies to grand receptions, we handle every detail with elegance and sophistication.</p>
+                <ul class="features-list">
+                    <li>Custom Floral Arrangements</li>
+                    <li>Luxury Venue Decoration</li>
+                    <li>Professional Lighting Design</li>
+                    <li>Catering Coordination</li>
+                    <li>Photography Setup</li>
+                    <li>Entertainment Coordination</li>
+                </ul>
+                <button class="cta-btn primary" onclick="scrollToContact()">Book Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Birthday Section -->
+    <section id="birthday">
+        <div class="event-container">
+            <div class="event-content">
+                <h2>Birthday Celebrations</h2>
+                <p>Make birthdays memorable with our spectacular decorations and themed setups. We specialize in creating magical moments for all age groups with creative themes and stunning backdrops.</p>
+                <ul class="features-list">
+                    <li>Themed Decorations</li>
+                    <li>Balloon Installations</li>
+                    <li>Custom Backdrops</li>
+                    <li>Photo Booth Setup</li>
+                    <li>Party Coordination</li>
+                    <li>Cake & Dessert Display</li>
+                </ul>
+                <button class="cta-btn primary" onclick="scrollToContact()">Book Now</button>
+            </div>
+            <div class="event-image">
+                <i class="fas fa-birthday-cake"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Baby Shower Section -->
+    <section id="baby-shower">
+        <div class="event-container">
+            <div class="event-image">
+                <i class="fas fa-baby"></i>
+            </div>
+            <div class="event-content">
+                <h2>Baby Shower Events</h2>
+                <p>Celebrate the joy of new beginnings with our elegant baby shower decorations. We create warm, welcoming spaces that reflect the excitement of this special milestone.</p>
+                <ul class="features-list">
+                    <li>Pastel Color Schemes</li>
+                    <li>Themed Decorations</li>
+                    <li>Diaper Cake Displays</li>
+                    <li>Gift Table Arrangements</li>
+                    <li>Photo Backdrop Design</li>
+                    <li>Sweet Corner Setup</li>
+                </ul>
+                <button class="cta-btn primary" onclick="scrollToContact()">Book Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Corporate Section -->
+    <section id="corporate">
+        <div class="event-container">
+            <div class="event-content">
+                <h2>Corporate Events</h2>
+                <p>Impress your clients and employees with our professional corporate event solutions. From conferences to product launches, we create sophisticated environments that enhance your brand image.</p>
+                <ul class="features-list">
+                    <li>Professional Setup</li>
+                    <li>Branding & Signage</li>
+                    <li>Stage Decoration</li>
+                    <li>Audio-Visual Setup</li>
+                    <li>Conference Room Design</li>
+                    <li>Networking Space Setup</li>
+                </ul>
+                <button class="cta-btn primary" onclick="scrollToContact()">Book Now</button>
+            </div>
+            <div class="event-image">
+                <i class="fas fa-building"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- About/Services Section -->
+    <section class="about">
+        <h2 class="section-title">Why Choose Us</h2>
+        <div class="about-grid">
+            <div class="service-card">
+                <i class="fas fa-star"></i>
+                <h3>Premium Quality</h3>
+                <p>We use the finest materials and latest trends to create stunning decorations that leave lasting impressions.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-users"></i>
+                <h3>Expert Team</h3>
+                <p>Our experienced professionals bring creativity and precision to every event, ensuring perfection in every detail.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-clock"></i>
+                <h3>On-Time Delivery</h3>
+                <p>We respect your time and ensure all decorations are set up perfectly and on schedule for your special day.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-lightbulb"></i>
+                <h3>Creative Ideas</h3>
+                <p>Our creative team constantly innovates to bring fresh and unique concepts to make your event stand out.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-handshake"></i>
+                <h3>Customer Support</h3>
+                <p>We provide dedicated support throughout your event planning process to ensure complete satisfaction.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-coins"></i>
+                <h3>Affordable Pricing</h3>
+                <p>Quality doesn't have to be expensive. We offer competitive pricing without compromising on excellence.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h3>Location</h3>
+                        <p>HK Event & Decoration<br>Hong Kong, China</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h3>Phone</h3>
+                        <p><a href="tel:+919876543210">+91 9876543210</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h3>Email</h3>
+                        <p><a href="mailto:info@hkevents.com">info@hkevents.com</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h3>Working Hours</h3>
+                        <p>Mon - Fri: 9:00 AM - 6:00 PM<br>Sat - Sun: 10:00 AM - 4:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            <form class="contact-form" onsubmit="handleFormSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>HK Event & Decoration is your premier choice for creating unforgettable events with our premium decoration and planning services.</p>
+                <div class="social-links">
+                    <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <p><a href="#home">Home</a></p>
+                <p><a href="#gallery">Gallery</a></p>
+                <p><a href="#wedding">Wedding</a></p>
+                <p><a href="#contact">Contact</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Our Services</h3>
+                <p><a href="#wedding">Wedding Decoration</a></p>
+                <p><a href="#birthday">Birthday Parties</a></p>
+                <p><a href="#baby-shower">Baby Showers</a></p>
+                <p><a href="#corporate">Corporate Events</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 HK Event & Decoration. All rights reserved. | Privacy Policy | Terms & Conditions</p>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <h2 class="modal-title" id="modalTitle">Gallery Item</h2>
+            <p id="modalDescription">Loading...</p>
         </div>
     </div>
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1533219057224-4bb9ed0d2093?w=500" onclick="this.src='1000108994.jpg'">
-        <div class="card-info">
-            <div class="card-title">Birthday Party</div>
-            <button class="btn" onclick="location.href='https://wa.me/919782469834'">Enquiry</button>
-        </div>
-    </div>
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=500" onclick="this.src='1000108993.jpg'">
-        <div class="card-info">
-            <div class="card-title">Anniversary Decor</div>
-            <button class="btn" onclick="location.href='https://wa.me/919782469834'">Enquiry</button>
-        </div>
-    </div>
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?w=500" onclick="this.src='1000108992.jpg'">
-        <div class="card-info">
-            <div class="card-title">Surprise Setup</div>
-            <button class="btn" onclick="location.href='https://wa.me/919782469834'">Enquiry</button>
-        </div>
-    </div>
-</div>
 
-<div class="form">
-    <h3 style="margin-top:0;">Book Now</h3>
-    <form action="https://formsubmit.co/jk4065179@gmail.com" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="tel" name="phone" placeholder="Mobile Number" required>
-        <button type="submit" class="submit-btn">Check Availability</button>
-    </form>
-</div>
+    <script>
+        // Navigation
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        const navLinks = document.querySelectorAll('.nav-link');
 
-<a href="https://wa.me/919782469834" class="wa">💬</a>
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
 
-<div class="nav">
-    <a href="#">🏠 Home</a>
-    <a href="tel:9782469834">📞 Call Now</a>
-    <a href="http://googleusercontent.com/maps.google.com/6" target="_blank">📍 Map</a>
-</div>
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                updateActiveLink(link);
+            });
+        });
 
-<script>
-    let i=0;
-    setInterval(()=>{
-        i=(i+1)%2;
-        document.getElementById("mainSlider").style.transform=`translateX(-${i*100}%)`;
-    },3000);
-</script>
+        function updateActiveLink(activeLink) {
+            navLinks.forEach(link => link.classList.remove('active'));
+            activeLink.classList.add('active');
+        }
 
+        // Smooth scroll and update active link
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Modal Functions
+        const modalData = {
+            wedding: {
+                title: 'Wedding Events',
+                description: 'Elegant wedding decorations featuring floral arrangements, luxury lighting, and stunning backdrops. Our team creates the perfect ambiance for your special day with custom designs tailored to your vision.'
+            },
+            birthday: {
+                title: 'Birthday Celebrations',
+                description: 'Vibrant birthday decorations with themed setups, balloon installations, and creative backdrops. From intimate gatherings to grand celebrations, we make every birthday memorable and magical.'
+            },
+            'baby-shower': {
+                title: 'Baby Shower Events',
+                description: 'Delicate baby shower decorations with pastel color schemes, themed elements, and charming displays. We create warm and welcoming spaces perfect for celebrating new beginnings.'
+            },
+            corporate: {
+                title: 'Corporate Events',
+                description: 'Professional corporate event solutions including branding, stage setup, and sophisticated decorations. Perfect for conferences, product launches, and business celebrations.'
+            },
+            gallery1: {
+                title: 'Sparkle & Elegance',
+                description: 'Stunning sparkle decorations with gold and silver accents creating an elegant and luxurious atmosphere perfect for any premium event.'
+            },
+            gallery2: {
+                title: 'Celebration Moments',
+                description: 'Premium celebration setups with champagne toasts, elegant tables, and sophisticated decorations for memorable moments.'
+            },
+            gallery3: {
+                title: 'Floral Arrangements',
+                description: 'Beautiful floral designs and arrangements adding natural elegance and fragrance to your event with fresh, premium quality flowers.'
+            },
+            gallery4: {
+                title: 'Entertainment Setup',
+                description: 'Professional entertainment areas with lighting, sound systems, and decorated stages creating the perfect atmosphere for your celebration.'
+            }
+        };
+
+        function openModal(type) {
+            const modal = document.getElementById('modal');
+            const data = modalData[type];
+            if (data) {
+                document.getElementById('modalTitle').textContent = data.title;
+                document.getElementById('modalDescription').textContent = data.description;
+                modal.classList.add('active');
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (event) => {
+            const modal = document.getElementById('modal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Form Submit
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+
+            // Create WhatsApp message
+            const whatsappMessage = `Hello HK Events,\n\nMy name is ${name}\nEmail: ${email}\nPhone: ${phone}\n\nMessage: ${message}`;
+            const whatsappUrl = `https://wa.me/919876543210?text=${encodeURIComponent(whatsappMessage)}`;
+
+            // Open WhatsApp in new tab
+            window.open(whatsappUrl, '_blank');
+
+            // Reset form
+            event.target.reset();
+            alert('Thank you for your message! Opening WhatsApp to continue the conversation.');
+        }
+
+        // Scroll to contact
+        function scrollToContact() {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Keyboard navigation for modal
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Lazy loading animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .gallery-item').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
